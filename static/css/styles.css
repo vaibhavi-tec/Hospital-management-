@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #abeeab; /* Green background */
+    background-image: url('../images/med.png'); /* Add your background image here */
+    background-size: cover;
+    background-position: center;
+}
+
+.form-background {
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for the glassmorphism effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.3); /* Glassmorphism effect */
+    border-radius: 15px; /* Curved corners */
+    padding: 15px;
+    width: 80%; /* Reduced width */
+    max-width: 400px; /* Reduced maximum width */
+    backdrop-filter: blur(8px); /* Slightly less blurring effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #09710e;
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+.form-group {
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+label {
+    display: block;
+    color: #fff;
+    margin-bottom: 4px; /* Reduced margin */
+}
+
+input[type="text"], 
+input[type="date"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    border: none;
+    border-radius: 8px; /* Slightly less curved edges */
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    border: none;
+    border-radius: 15px; /* Curved button */
+    background-color: #f6f7f6; /* Light green color */
+    color: rgb(5, 117, 20);
+    font-size: 14px; /* Slightly smaller font size */
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}

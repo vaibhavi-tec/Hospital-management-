@@ -1,0 +1,225 @@
+.col-xs-12 {
+    float: left;
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.page-title {
+    display: inline-block;
+    width: 100%;
+    background: rgba(58, 73, 211, 0.192);
+    margin-top: 10px;
+    padding: 8px 45px;
+    border-radius: 35px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+}
+.pull-left {
+    float: left !important;
+}
+.page-title h1 {
+    font-size: 22px;
+    font-weight: 500;
+    padding: 5px 0;
+    line-height: 1;
+    text-transform: capitalize;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    color: rgb(61, 61, 61);
+    margin-bottom: 15px;
+}
+
+.pull-right {
+    float: right !important;
+    display: flex;
+}
+
+.page-title .breadcrumb {
+    padding: 0px;
+    margin: 15px 0;
+    list-style:none;
+    display: flex;
+    gap: 10px;
+}
+.breadcrumb li a {
+    vertical-align: top;
+    color: black;
+    
+}
+.breadcrumb .fa {
+    font-size: 14px;
+    margin-right: 5px;
+}
+.breadcrumb, .breadcrumb a {
+    color: black;
+}
+
+.breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #4b4a4a;
+    content: "/\00a0";
+}
+
+.wrapper {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Adding a bit of margin-top to move the container down */
+    margin-top: 10px;
+}
+
+/* Glassmorphism effect container */
+.glassmorphism-container {
+    background: rgba(58, 73, 211, 0.192);; /* Semi-transparent white */
+    border-radius: 10px;
+    padding: 20px;
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    width: 400%;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Header inside the glassmorphism container */
+.glassmorphism-container h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000000; /* White color for contrast */
+}
+
+/* Form styling */
+#payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Form group styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000000; /* White color for contrast */
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(228, 231, 233, 0.938);
+}
+
+.form-group input[type="date"] {
+    cursor: pointer;
+    background: rgba(228, 231, 233, 0.938);
+}
+
+/* Charges section styling */
+h2 {
+    color: #000000; /* White color for contrast */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Charge inputs and button styling */
+.charge-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: rgba(228, 231, 233, 0.938);
+}
+
+.charge-inputs input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.charge-inputs button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.charge-inputs button:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+}
+
+/* Charges table styling */
+#charges-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#charges-table thead {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+}
+
+#charges-table th,
+#charges-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#charges-table th {
+    font-weight: bold;
+}
+
+#charges-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping */
+}
+
+/* Total amount section styling */
+.total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #080808; /* White color for contrast */
+}
+
+/* Button styling for Save and Print Invoice */
+#payment-form button[type="button"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745; /* Bootstrap success color */
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#payment-form button[type="button"]:hover {
+    background-color: #218838; /* Darker shade for hover */
+}
+
+/* Invoice section styling */
+.invoice {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.226); /* Semi-transparent white */
+    border-radius: 10px;
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    color: #000000; /* White color for contrast */
+}

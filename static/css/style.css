@@ -1,0 +1,528 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color:#37729C;
+    color: white;
+    padding: 10px 0;
+}
+
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Adjust size of the logo */
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.nav-login {
+    background-color: #4c7252; /* Green color */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.nav-signup {
+    background-color: #091F46; /* Green color */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.nav-signup:hover {
+    background-color: #859970; /* Darker green for hover effect */
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#home {
+    position: relative;
+    width: 98%;
+    height: 380px;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.message-chairman {
+    background-color: #f9f9f9; /* Light background color */
+    padding: 10px 10px;
+}
+
+
+.message-chairman h1 {
+
+    font-size: 35px;
+    font-family: var(--helvetica);
+    font-weight: 700;
+    color: #2b2a29;
+    margin-bottom: -60px;
+}
+
+.message-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-bottom: -60px;
+}
+
+.message-text, .message-image {
+    flex: 1;
+}
+
+.message-text {
+    text-align: justify;
+    padding: 80px;
+    font-weight: 500;
+    font-family: var(--helvetica);
+    font-size: 18px;
+    color: #585858;
+    
+    align-items: 60%;
+}
+
+.message-text h2 {
+    margin-top: 0;
+    font-weight: 500;
+    font-family: var(--helvetica);
+    font-size: 25px;
+    color: #585858;
+    padding: 6px;
+    align-items: 60%;
+}
+
+.message-image {
+    text-align: left 20px;
+    
+}
+
+.message-image img {
+    width: 100%;
+    max-width: 450px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Services Section */
+.services-section {
+    padding: 60px 40px;
+    background-color: #ffffff; /* Light grey background for the section */
+}
+
+.services-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1600px;
+    
+}
+
+.services-left {
+    text-align: left;
+    max-width: 500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px; /* Reduce space between the boxes */
+    flex: 2; /* Flex grow for the left side */
+    column-gap: 5px;
+
+}
+
+.service-box {
+    background-color: white;
+    border-radius: 8px; /* Adjust rounded corners */
+    box-shadow: 0 4px 8px rgba(119, 223, 145, 0.493);
+    text-align: center;
+    padding: 10px; /* Reduce padding */
+    overflow: hidden;
+    position: relative;
+    max-width: 120px; /* Set max width for the box */
+    margin: 0 auto; /* Center align the boxes if needed */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.service-box img {
+    width: 60%; /* Reduce image size */
+    height: auto;
+    border-radius: 8px; /* Adjust rounded corners */
+}
+
+.service-box p {
+    margin-top: 8px; /* Adjust margin */
+    font-size: 14px; /* Adjust font size */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Hover effect for sliding up */
+.service-box:hover {
+    background-color: #28a745;
+    transform: translateY(-10px);/* Slide up effect */
+}
+
+/* Initial position of image for sliding effect */
+.service-box img {
+    transition: transform 0.3s ease; /* Smooth transition for image */
+}
+
+.service-box:hover img {
+    transform: translateY(-5px); /* Slide up effect on hover */
+}
+
+
+.services-right {
+    text-align: right ;
+    width: 800px;
+    height: auto;
+    flex: 1; /* Flex grow for the right side */
+    overflow: hidden; /* Hide overflow to keep image contained */
+}
+
+.services-right img {
+    width: auto;
+    height: 250px;
+    border-radius: 10px; /* Rounded corners */
+    transform: translateY(30px); /* Initial position */
+    transition: transform 0.3s ease-in-out; /* Slide up effect */
+}
+
+.services-right:hover img {
+    transform: translateY(0); /* Slide up effect on hover */
+}
+
+
+.doctors-section {
+    padding: 60px 40px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.doctors-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+.doctors-container {
+    display: flex;
+    width: 100%;
+}
+
+.doctors-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.doctors-slide {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.doctor-box {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 50px;
+    height: 280px;
+    flex: 1;
+    max-width: calc(80% - 20px); /* 4 boxes per slide with space in between */
+    margin: 0 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-box img {
+    margin-bottom: -10px;
+    width: 170px;
+    height: 190px;
+    border-radius: 8px;
+}
+
+.doctor-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.doctor-info {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Hover effect for doctor boxes */
+.doctor-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Carousel buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+
+
+.info-aboutus {
+    background-color: #091F46; /* Green color */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+.info-aboutus:hover {
+    background-color: #859970; /* Darker green for hover effect */
+}
+
+
+
+.info-section {
+    background-color: #fff;
+    padding: 40px 20px;
+}
+
+.info-contact {
+    background-color: #091F46; /* Green color */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+.info-contact:hover {
+    background-color: #859970; /* Darker green for hover effect */
+}
+
+.info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-text, .info-image {
+    flex: 1;
+}
+
+.info-text {
+    text-align: left;
+    padding: 20px;
+}
+
+.info-text h2 {
+    margin-top: 0;
+}
+
+.info-image {
+    text-align: right;
+}
+
+.info-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.top-header {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-media {
+    display: flex;
+}
+
+.social-icon {
+    margin-right: 15px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.appointment-button {
+    background-color: #406346;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+.appointment-button:hover {
+    background-color: #859970;
+}
+
+.footer {
+    --tw-bg-opacity: 1;
+    background-color: rgb(11 15 41 / var(--tw-bg-opacity));
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #091F46;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #8a8d9d;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-column a:hover {
+    color: #ffffff;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-contact h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #e50914;
+}
+
+.footer-contact p {
+    margin: 0;
+    color: #8a8d9d;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+

@@ -1,0 +1,144 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+}
+.col-xs-12 {
+    float: left;
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.page-title {
+    display: inline-block;
+    width: 100%;
+    background: rgba(58, 73, 211, 0.192);
+    margin-top: 10px;
+    padding: 8px 45px;
+    border-radius: 35px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+}
+.pull-left {
+    float: left !important;
+}
+.page-title h1 {
+    font-size: 22px;
+    font-weight: 500;
+    padding: 5px 0;
+    line-height: 1;
+    text-transform: capitalize;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    color: rgb(61, 61, 61);
+    margin-bottom: 15px;
+}
+
+.pull-right {
+    float: right !important;
+    display: flex;
+}
+
+.page-title .breadcrumb {
+    padding: 0px;
+    margin: 15px 0;
+    list-style:none;
+    display: flex;
+    gap: 10px;
+}
+.breadcrumb li a {
+    vertical-align: top;
+    color: black;
+    
+}
+.breadcrumb .fa {
+    font-size: 14px;
+    margin-right: 5px;
+}
+.breadcrumb, .breadcrumb a {
+    color: black;
+}
+
+.breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #4b4a4a;
+    content: "/\00a0";
+}
+.wrapper {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Adding a bit of margin-top to move the container down */
+    margin-top: 10px;
+}
+
+.glassmorphism-container {
+    background: rgba(58, 73, 211, 0.192);
+    border-radius: 8px; /* Reduced border radius */
+    padding: 25px; /* Slightly increased padding for better spacing */
+    backdrop-filter: blur(8px); /* Slightly more blur for better contrast */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    width: 100%;
+    max-width: 800px; /* Width remains compact */
+    color: #fff;
+    /* Adjust vertical alignment */
+    margin-top: 0px; /* Add top margin to bring it down */
+}
+
+h1 {
+    font-size: 18px; /* Font size for the title */
+    margin-bottom: 15px; /* Space below the title */
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 6px; /* Increased margin for better spacing */
+    font-weight: bold;
+    color: #000000; /* Ensures label text is visible */
+    font-size: 14px; /* Slightly increased font size for better readability */
+}
+
+input[type="text"], input[type="date"], input[type="time"],select {
+    margin-bottom: 10px; /* Spacing between form fields */
+    padding: 8px; /* Padding for better touch targets */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2); /* Slightly more visible input fields */
+    color: #000; /* Text color for inputs to ensure readability */
+}
+
+button {
+    padding: 8px 12px; /* Adjusted padding for buttons */
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px; /* Space above the buttons */
+}
+
+.btn.green {
+    background-color: #37729C;
+}
+
+.btn.red {
+    background-color: #c82333;
+}
+
+.btn.green:hover {
+    background-color: #7699AE;
+}
+
+.btn.red:hover {
+    background-color: #c82333;
+}

@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+}
+
+.wrapper {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Adding a bit of margin-top to move the container down */
+    margin-top: 20px;
+}
+
+.glassmorphism-container {
+    background: rgba(58, 73, 211, 0.192);
+    border-radius: 8px; /* Reduced border radius */
+    padding: 15px; /* Slightly increased padding for better spacing */
+    backdrop-filter: blur(8px); /* Slightly more blur for better contrast */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    width: 100%;
+    max-width: 400px; /* Width remains compact */
+    color: #fff;
+    /* Adjust vertical alignment */
+    margin-top: 20px; /* Add top margin to bring it down */
+}
+
+h1 {
+    font-size: 18px; /* Font size for the title */
+    margin-bottom: 15px; /* Space below the title */
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 6px; /* Increased margin for better spacing */
+    font-weight: bold;
+    color: #000000; /* Ensures label text is visible */
+    font-size: 14px; /* Slightly increased font size for better readability */
+}
+
+input[type="text"], input[type="date"], input[type="time"] {
+    margin-bottom: 10px; /* Spacing between form fields */
+    padding: 8px; /* Padding for better touch targets */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2); /* Slightly more visible input fields */
+    color: #000; /* Text color for inputs to ensure readability */
+}
+
+button {
+    padding: 8px 12px; /* Adjusted padding for buttons */
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px; /* Space above the buttons */
+}
+
+.btn.green {
+    background-color: #37729C;
+}
+
+.btn.red {
+    background-color: #c82333;
+}
+
+.btn.green:hover {
+    background-color: #7699AE;
+}
+
+.btn.red:hover {
+    background-color: #c82333;
+}

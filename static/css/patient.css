@@ -1,0 +1,155 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Fallback background color */
+    background-size: cover; /* Ensure the background image covers the whole page */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Keep the background image fixed during scrolling */
+    height: 100vh;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Wrapper */
+.form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Equal columns for image and form */
+    gap: 20px; /* Space between image and form */
+    max-width: 1200px; /* Max width for the layout */
+    width: 60%;
+    height: 60%;
+    background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(61, 91, 126, 0.637); /* Shadow for depth */
+    border-radius: 15px;
+}
+
+/* Form Image */
+.form-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure image does not overflow */ /* Reduced opacity for the image */
+    border-radius: 15px;
+}
+
+.form-image img {
+    width: 80%;
+    height: 80%;
+
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #7699AE;
+    height: 100%;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    animation: fadeInZoom 1s ease-out forwards; /* Apply fade-in and zoom animation */
+    border-radius: 15px;
+}
+
+/* Heading */
+h1 {
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+    font:14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: textGlow 1.5s ease-in-out infinite alternate; /* Pulsing glow effect */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input Fields */
+input[type="text"], input[type="tel"], input[type="password"], input[type="date"], textarea, select, input[type="file"] {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 6px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    animation: inputShadow 2s ease-in-out infinite alternate;
+}
+
+input[type="button"]{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 45px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    animation: inputShadow 2s ease-in-out infinite alternate;
+}
+textarea {
+    resize: vertical;
+}
+
+input:focus, textarea:focus, select:focus {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.6);
+}
+
+/* Button */
+.button {
+    background-color: #b1e4df;
+    color: #0c0c0c;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 65px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    animation: buttonBounce 2s ease-in-out infinite;
+}
+
+.button:hover {
+    background-color: #a0c8c5;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.8);
+}
+
+/* Keyframe Animations */
+
+/* Fade-In and Zoom Animation for Form Container */
+@keyframes fadeInZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) rotateY(-20deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05) rotateY(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateY(0deg);
+    }
+}
