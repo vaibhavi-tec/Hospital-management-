@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Add Appointment - SG Hospital</title>
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" href="{% static '/css/add_inventory.css' %}">
+</head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <span class="icon">
+                            <img src="{% static '/images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                        </span>
+                        <span class="title">SG Hospital</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <span class="icon">
+                            <i class='bx bx-grid-alt' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/doctors.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">User</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'adduserdash' %}">Add New User</a>
+                        <a href="{% url 'userdash' %}">View User</a>
+                    </div>
+                </li>                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/medical.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Patient</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addpat' %}">Add New Patient</a>
+                        <a href="{% url 'patientdash' %}">View Patients</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/calendar.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Appointment</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addappo' %}">Add New Appointment</a>
+                        <a href="{% url 'appostaff' %}">View Appointment</a>
+                        <a href="#">Doctor Schedule</a>
+                    </div>
+                </li>
+                
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/ct-scan.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Laboratory</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'Equipdash'%}">Lab Equipment</a>
+                        <a href="{% url 'Labdash' %}">Lab Service</a>
+                        <a href="{% url 'Meddash' %}">medical record</a>
+                        <a href="{% url 'report' %}">Report</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <i class='bx bx-plus-medical' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Pharmacy</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addpharm' %}">Add New Medicine</a>
+                        <a href="{% url 'pharmdash' %}">View Medicines</a>
+                        <a href="{% url 'addin' %}">Add New Inventory</a>
+                        <a href="{% url 'inventstaff' %}">View Inventory</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <i class='bx bx-bed' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Ward</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addward' %}"> Add Wards</a>
+                        <a href="{% url 'warddash' %}">View Ward</a>
+                        <a href="{% url 'addbed' %}">Add Bed</a>
+                        <a href="{% url 'beddash' %}">View Bed</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/bill.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Payment</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addpay' %}">payment</a>
+                        <a href="{% url 'paydash' %}">view payment</a>
+                        <a href="{% url 'invoice' %}">print payment</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"style="color: black;"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>>
+            </ul>
+        </div>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+                <i class='bx bx-message-detail' style="color: black; font-size: 25px; position: relative;"></i>
+                <i class='bx bxs-bell' style="color: black; font-size: 25px;"></i>
+                <span style="right: 20%;">Hello, Roberto</span>
+                <div class="user">
+                    <img src="{% static 'images/doctors/doctor 1.jpg' %}" alt="">
+                </div>
+            </div>
+
+            <!-- Add Appointment Form -->
+            <div class="wrapper">
+                <div class="glassmorphism-container">
+                    <h1>Add Inventory</h1>
+                    <form id="addInventoryForm">
+                        <label for="itemName">Item Name:</label>
+                        <input type="text" id="itemName" required>
+
+                        <label for="quantity">Quality:</label>
+                        <input type="text" id="quantity" required>
+
+                        <label for="supplier">Supplier:</label>
+                        <input type="text" id="supplier" required>
+
+                        <label for="cost">Cost:</label>
+                        <input type="text" id="cost" required>
+
+                        <label for="stockLevel">Stock Level:</label>
+                        <input type="text" id="stockLevel" required>
+
+                        <button type="submit" class="btn green">Add Inventory</button>
+                        <button type="button" class="btn red" onclick="window.location.href='in-dash.html'">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="{% static '/js/addin.js' %}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- jQuery script for form submission -->
+    <script>
+        $(document).ready(function() {
+            $('#addInventoryForm').on('submit', function(event) {
+                event.preventDefault();
+        
+                var itemName = $('#itemName').val();
+                var quantity = $('#quantity').val();
+                var supplier = $('#supplier').val();
+                var cost = $('#cost').val();
+                var stockLevel = $('#stockLevel').val();
+        
+                // Basic validation (optional, you can customize this)
+                if (!itemName || !quantity || !supplier || !cost || !stockLevel) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+        
+                // Example AJAX request (change URL to your server endpoint)
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'add_inventory' %}", // Endpoint in updated URLs
+                    data: {
+                        itemName: itemName,
+                        quantity: quantity,
+                        supplier: supplier,
+                        cost: cost,
+                        stockLevel: stockLevel,
+                        csrfmiddlewaretoken: '{{ csrf_token }}' // Add CSRF token for Django
+                    },
+                    success: function(response) {
+                        alert('Item Inventory added successfully!');
+                        window.location.href = '{% url "inventstaff" %}'; // Redirect to view appointments
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('An error occurred while adding theinventory.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

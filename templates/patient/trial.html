@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" >
+    
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" >
+    <select  id="utype">
+        <option value="staff">staff</option>
+        <option value="doctor">doctor</option>
+    </select>
+    
+    <button onclick="check()" value="Signup">Signup</button>
+    <script>
+        function check(){
+            var username= $('#username').val();
+            var password= $('#password').val();
+            var utype = $('#utype').val();
+            console.log("username:", username);
+            console.log("username:", username);
+            console.log("utype:", utype);
+
+            $.ajax({
+                type: "POST",
+                url:  "/Patient/create_staff",
+                data: {"username": username , "password": password , "utype":utype},
+                success: function(data)
+                {
+                    console.log(data);
+                    window.location.replace("/Patient/view_staff");
+                }
+                
+
+            })
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</body>
+
+</html>

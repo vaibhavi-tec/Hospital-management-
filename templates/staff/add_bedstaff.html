@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Add Bed - SG Hospital</title>
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" href="{% static '/css/add_bed.css' %}">
+</head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <span class="icon">
+                            <img src="{% static '/images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                        </span>
+                        <span class="title">SG Hospital</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <span class="icon">
+                            <i class='bx bx-grid-alt' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/doctors.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">User</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'adduserdash' %}">Add New User</a>
+                        <a href="{% url 'userdash' %}">View User</a>
+                    </div>
+                </li>                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/medical.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Patient</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addpat' %}">Add New Patient</a>
+                        <a href="{% url 'patientdash' %}">View Patients</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/calendar.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Appointment</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addappo' %}">Add New Appointment</a>
+                        <a href="{% url 'appostaff' %}">View Appointment</a>
+                        <a href="#">Doctor Schedule</a>
+                    </div>
+                </li>
+                
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/ct-scan.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Laboratory</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'Equipdash'%}">Lab Equipment</a>
+                        <a href="{% url 'Labdash' %}">Lab Service</a>
+                        <a href="{% url 'Meddash' %}">medical record</a>
+                        <a href="{% url 'report' %}">Report</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <i class='bx bx-plus-medical' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Pharmacy</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addpharm' %}">Add New Medicine</a>
+                        <a href="{% url 'pharmdash' %}">View Medicines</a>
+                        <a href="{% url 'addin' %}">Add New Inventory</a>
+                        <a href="{% url 'inventstaff' %}">View Inventory</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <i class='bx bx-bed' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Ward</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addward' %}"> Add Wards</a>
+                        <a href="{% url 'warddash' %}">View Ward</a>
+                        <a href="{% url 'addbed' %}">Add Bed</a>
+                        <a href="{% url 'beddash' %}">View Bed</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/bill.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Payment</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addpay' %}">payment</a>
+                        <a href="{% url 'paydash' %}">view payment</a>
+                        <a href="{% url 'invoice' %}">print payment</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"style="color: black;"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+                <i class='bx bx-message-detail' style="color: black; font-size: 25px; position: relative;"></i>
+                <i class='bx bxs-bell' style="color: black; font-size: 25px;"></i>
+                <span style="right: 20%;">Hello, Roberto</span>
+                <div class="user">
+                    <img src="{% static 'images/doctors/doctor 1.jpg' %}" alt="">
+                </div>
+            </div>
+
+            <!-- Add Appointment Form -->
+            <div class="page-title">
+
+                <div class="pull-left">
+                    <!-- PAGE HEADING TAG - START -->
+                    <h1 class="title">Add Appointment</h1>
+                    <!-- PAGE HEADING TAG - END -->
+                </div>
+
+                <div class="pull-right hidden-xs">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="{% url 'index' %}"><i class="fa fa-home"></i> Home </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'beddash' %}"> Bed </a>
+                        </li>
+                        <li class="active">
+                            <strong>Add Bed</strong>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+            <div class="wrapper">
+                <div class="glassmorphism-container">
+                    <h1>Add bed</h1>
+                    <form id="addbedForm">
+
+                        <label for="wardID"> ward ID:</label>
+                        <input type="text" id="wardID" required>
+
+                        <label for="Date">Date:</label>
+                        <input type="date" id="Date" required>
+
+                        <label for="doctorName">Doctor Name:</label>
+                        <input type="text" id="doctorName" required>
+
+                        <label for="patientname">patient Name:</label>
+                        <input type="text" id="patientname" required>
+
+                        <label for="patientstatus">patient status</label>
+                        <input type="text" id="patientstatus" required>
+
+                        <label for="prescription">Prescription:</label>
+                        <input type="text" id="prescription" required>
+
+                        
+
+                        <button type="submit" class="btn green">Add bed</button>
+                        <button type="button" class="btn red" onclick="window.location.href='#'">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="{% static '/js/add_bed.js' %}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#addbedForm').on('submit', function(event) {
+                event.preventDefault();
+        
+                var wardID = $('#wardID').val();
+                var Date = $('#Date').val();
+                var doctorName = $('#doctorName').val();
+                var patientname = $('#patientname').val();
+                var patientstatus = $('#patientstatus').val();
+                var prescription = $('#prescription').val();
+
+        
+                // Basic validation (optional, you can customize this)
+                if (!wardID || !Date || !doctorName || !patientname ||  !patientstatus ||!prescription) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+        
+                // Example AJAX request (change URL to your server endpoint)
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'add_bed' %}", // Endpoint in updated URLs
+                    data: {
+                        
+                        wardID: wardID,
+                        Date: Date,
+                        doctorName: doctorName,
+                        patientname: patientname,
+                        patientstatus:patientstatus,
+                        prescription:prescription,
+                        csrfmiddlewaretoken: '{{ csrf_token }}' // Add CSRF token for Django
+                    },
+                    success: function(response) {
+                        alert('bed added successfully!');
+                        window.location.href = '{% url "beddash" %}'; // Redirect to view appointments
+                    }
+                    
+                });
+            });
+        });
+    </script>
+</body>
+</html>

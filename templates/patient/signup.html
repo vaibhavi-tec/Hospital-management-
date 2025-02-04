@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Sudeeksha Groups Hospital</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                    <span>SG Hospital</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="{% url 'login' %}" class="nav-signup">Login</a>
+                <a href="{% url 'signup' %}" class="nav-signup">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="glassmorphism-container">
+            <div class="container-inner">
+                <div class="image-container">
+                    <img src="{% static 'images/signup.png' %}" alt="Appointment Image">
+                </div>
+                <div class="form-container">
+                    <h1>Register</h1>
+                    <form id="addPatForm" class="form">
+
+                        <label for="patientname">Patient Name:</label>
+                        <input type="text" id="patientname" required>
+
+                        <label for="patientphone">Phone Number:</label>
+                        <input type="tel" id="patientphone" required>
+
+                        <label for="patientgender">Gender:</label>
+                        <select id="patientgender" name="patientgender" required>
+                            <option value="" disabled selected>Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <label for="patientdob">Date of Birth</label>
+                        <input type="date" id="dateofbirth" required>
+
+                        <label for="medicalhistory">Medical History:</label>
+                        <input type="file" id="medicalhistory" required>
+
+                        <label for="patientaddress">Address:</label>
+                        <textarea id="patientaddress" name="patientaddress" rows="2" required></textarea>
+
+                        <label for="status">Status:</label>
+                        <select id="status" name="status" required>
+                            <option value="" disabled selected>Select the status</option>
+                            <option value="New patient">New patient</option>
+                            <option value="Recoverd">Recovered</option>
+                            <option value="In Treatment">In Treatment</option>
+                        </select>
+
+                        <label for="patientpassword">Password:</label>
+                        <input type="password" id="patientpassword" name="patientpassword" required>
+
+                        <div class="signup-link">
+                            Set <a href="{% url 'setpass' %}">username & password</a>
+                        </div>
+
+                        <button type="submit" class="btn green">Continue</button>
+                    </form>
+                    <div class="signup-link">
+                        Have an account? <a href="{% url 'login' %}">Login IN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-column">
+            <h3>Company</h3>
+            <a href="indexmain.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="movies.html">Movies</a>
+        </div>
+        <div class="footer-column">
+            <h3>Top Categories</h3>
+            <a href="#">Action</a>
+            <a href="#">Romantic</a>
+            <a href="#">Drama</a>
+            <a href="#">Historical</a>
+        </div>
+        <div class="footer-column">
+            <h3>My Account</h3>
+            <a href="#">Dashboard</a>
+            <a href="#">My Favorites</a>
+            <a href="#">Profile</a>
+            <a href="#">Change Password</a>
+        </div>
+        <div class="footer-contact">
+            <h3>SG hospital</h3>
+            <p>Lorem 196 Andrew Road, Suite 200,</p>
+            <p>New York, NY 10007</p>
+            <p>Tell: +255 754 661 423</p>
+            <p>Email: info@zpunet.com</p>
+        </div>
+    </div>
+    <script src="{% static '/js/addpat.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#addPatForm').on('submit', function(event) {
+                event.preventDefault();
+        
+                
+                var patientname = $('#patientname').val();
+                var patientphone = $('#patientphone').val();
+                var patientgender = $('#patientgender').val();
+                var dateofbirth = $('#dateofbirth').val();
+                var medicalhistory= $('#medicalhistory').val();
+                var patientaddress= $('#patientaddress').val();
+                var status= $('#status').val();
+                var patientpassword= $('#patientpassword').val();
+        
+                // Basic validation (optional, you can customize this)
+                if (!patientphone || !patientgender || !dateofbirth || !medicalhistory || !patientaddress || !status || !patientpassword) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+        
+                // Example AJAX request (change URL to your server endpoint)
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'add_pat' %}", // Endpoint in updated URLs
+                    data: {
+                        patientname: patientname,
+                        patientphone: patientphone,
+                        patientgender: patientgender,
+                        dateofbirth: dateofbirth,
+                        medicalhistory: medicalhistory ,
+                        patientaddress: patientaddress, 
+                        status: status ,
+                        patientpassword: patientpassword,
+                        csrfmiddlewaretoken: '{{ csrf_token }}'  // Add CSRF token for Django
+                    },
+                    success: function(response) {
+                        alert('patient added successfully!');
+                        window.location.href = "{% url 'setpass' %}"; // Redirect to view appointments
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('An error occurred while adding the patient.');
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

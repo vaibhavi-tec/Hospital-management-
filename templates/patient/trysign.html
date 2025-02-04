@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <label for="patient-name">Patient Name:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="patient-password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" onclick="check();" value="Register">
+
+    <script>
+        function check()
+        {
+            var username = $("#username").val();
+            var pass = $("#password").val();
+            //console.log("username: ", username);
+            //console.log("password: ", pass);
+            $.ajax({
+                type: "POST",
+                url: "{% url 'login_check' %}",
+                data:{"patientname": username, "pateintpass": pass},
+                success: function(data)
+                {
+                    if(data["status"] == "pass")
+                {
+                    alert("login sucess");
+                }
+                else
+                {
+                    alert("login failed");
+                }
+                    
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

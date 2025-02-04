@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudeeksha Groups Hospital</title>
+    <link rel="stylesheet" href="{% static '/css/about.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                    <span>SG Hospital</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home'%}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="{% url 'login' %}" class="nav-signup">Login</a>
+                <a href="{% url 'signup' %}" class="nav-signup">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to Sudeeksha Groups Hospital</h1>
+        <p>Providing quality healthcare services to the community.</p>
+    </section>
+    <div class="details">
+        <div class="education">
+            <h2>OUR MISSION</h2>
+            <p style="text-align: justify; font-size: 15px;">To establish ourselves as the foremost group of companies, distinguished by our unwavering commitment to delivering an exceptional business and customer experience. We aim to set and maintain the highest standards of service, reliability, and innovation. Our mission is to build and nurture long-lasting relationships with our customers by consistently exceeding their expectations and demonstrating unparalleled excellence in every aspect of our operations.</p>
+        </div>
+        <div class="skills">
+            <h2>OUR VISION</h2>
+            <p style="text-align: justify;font-size: 15px;">To become best Organization par Excellence in India by providing exemplary citizenship, responsive, growth, longevity reliability, flexibility in services and financial success.To be known for highest standards of personal ethics, Core Values and professional conduct.To patients/customers through systems-oriented in terms of consumer value, customer service and being consistent.To colleagues through Teamwork, accountability pro-active & enterprising employee talent.</p>
+        </div>
+    </div>
+
+    <section id="message-chairman" class="message-chairman">
+        <h1>Message From Our Chairman</h1>
+        <div class="message-container">
+            <div class="message-image">
+                <img src="{% static 'images/chairman.png' %}" alt="Chairman">
+            </div>
+            <div class="message-text">
+                <p>Welcome to Sudeeksha Groups Hospital. As Chairman, I am proud to lead an organization dedicated to providing the highest quality healthcare services. Our commitment to excellence, patient care, and innovation drives us to continuously improve and serve our community with compassion and integrity. Thank you for placing your trust in us.</p>
+                <ul>
+                    <li>Alumnus of Harvard University.</li>
+                    <li> Over 28 yrs. of experience in Sales, Marketing including Finance, Media & Entertainment, Aviation, Solar Energy, Healthcare, Retail & legal.</li>
+                </ul>
+                <h4 style="font-family:Arial, Helvetica, sans-serif;">DR.SUBRAMANYAM SHARAMA G</h4>
+                <span class="chairman" style="font-style: italic;"> Chairman and Managing Director</span>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="info-aboutus">
+        <h2>About Us</h2>
+        <p>Sudeeksha HealthCare Private Limited is a unit promoted by Sudeeksha Group of Companies, which was formed in 2009 and is now venturing into one of the India’s fastest growing business namely Retail. Currently Sri. G. Seshasayi Sharma, Sri G. Subramanyam Sharma and the legal advisor Smt. Aparna Kanampalle are the promoters of this venture. The group is highly motivated qualified professionals, well experienced in their respective fields. The promoters are hard core professionals with innovation, Entrepreneurship, Transparency, Integrity, passion for superior performance anticipation, speed and flexibility to achieve excellence in all spheres of business</p>
+        <p>We also have alliances with several major companies in their respective sectors across the world.Providing innovative and creative solutions for more than 1,800 domestic and global customers.Benefited by services, products and solutions offered by our group and its strategic partners</p>
+    </section>
+    <div class="footer">
+        <div class="footer-column">
+            <h3>Company</h3>
+            <a href="{% url 'home'%}">Home</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-column">
+            <h3>Top Categories</h3>
+            <a href="#">Action</a>
+            <a href="#">Romantic</a>
+            <a href="#">Drama</a>
+            <a href="#">Historical</a>
+        </div>
+        <div class="footer-column">
+            <h3>My Account</h3>
+            <a href="#">Dashboard</a>
+            <a href="#">My Favorites</a>
+            <a href="#">Profile</a>
+            <a href="#">Change Password</a>
+        </div>
+        <div class="footer-contact">
+            <h3>SG hospital</h3>
+            <p>Lorem 196 Andrew Road, Suite 200,</p>
+            <p>New York, NY 10007</p>
+            <p>Tell: +255 754 661 423</p>
+            <p>Email: info@zpunet.com</p>
+        </div>
+    </div>
+</body>
+</html>

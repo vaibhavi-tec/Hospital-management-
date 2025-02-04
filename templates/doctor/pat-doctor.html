@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>SG Hospital Dashboard</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" href=" {% static '/css/patdashboard.css' %}">
+</head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/Doctor/doctor">
+                        <span class="icon">
+                            <img src="{% static '/images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                        </span>
+                        <span class="title">SG Hospital</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Doctor/doctor">
+                        <span class="icon">
+                            <i class='bx bx-grid-alt' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>              
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/medical.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Patient</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    <div class="dropdown-menu">
+                        <a href="/Doctor/doctor/addpat">Add New Patient</a>
+                        <a href="/Doctor/doctor/patientdash">View Patients</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/calendar.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Appointment</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/Doctor/doctor/addappo">Add New Appointment</a>
+                        <a href="/Doctor/doctor/appostaff">View Appointment</a>
+                        <a href="#">Doctor Schedule</a>
+                    </div>
+                </li>
+                
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/ct-scan.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Laboratory</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/Doctor/doctor/Equipdash">Lab Equipment</a>
+                        <a href="/Doctor/doctor/Labdash">Lab Service</a>
+                        <a href="/Doctor/doctor/Meddash">medical record</a>
+                        <a href="/Doctor/doctor/report">Report</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"style="color: black;"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <i class='bx bx-message-detail' ></i>
+                <i class='bx bxs-bell'></i>
+
+                <span>Hello,{{ currentuser}}</span>
+                <div class="user">
+                    <img src="{% static 'images/facebook.png' %}" alt="">
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="wrapper">
+                <!-- Main content -->
+                <div class="main-content">
+
+                    <header>
+                        <h1>Patient Registration</h1>
+                        <div class="user-profile">
+                            <span>Hello, Roberto</span>
+                        </div>
+                    </header>
+        
+                    <div class="content">
+                        <div class="breadcrumb">
+                            <span>Dashboard / Patient</span>
+                        </div>
+        
+                        <div class="top-bar">
+                            <div class="search-bar">
+                                <input type="text" placeholder="Search here" id="search">
+                                <button><i class="fas fa-search"></i></button>
+                            </div>
+                            <div class="actions">
+                                <a href="{% url 'addpat' %}"><button class="btn green" id="newPatientBtn">+  Add Patient </button></a>
+                                <button class="btn green" id="filterBtn">Filter</button>
+                                <div class="filter-options" id="filterOptions" style="display: none;">
+                                    <button onclick="sortTable('name', 'asc')">Sort A-Z</button>
+                                    <button onclick="sortTable('name', 'desc')">Sort Z-A</button>
+                                    <button onclick="sortTable('date', 'asc')">Oldest</button>
+                                    <button onclick="sortTable('date', 'desc')">Newest</button>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <table class="appointments-table" id="appointmentsTable">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Patient ID</th>
+                                    <th>Patient Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Gender</th>
+                                    <th>Date of Birth</th>
+                                    <th>Medical History</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+                                    <th>Password</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Iterate over inventory and display them -->
+                                {% for obj in userdata %}
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>{{ obj.patient_id }}</td>
+                                    <td>{{ obj.patient_name }}</td>
+                                    <td>{{ obj.phone_number }}</td>
+                                    <td>{{ obj.gender }}</td>
+                                    <td>{{ obj.date_of_birth }}</td>
+                                    <td>{{ obj.medical_history }}</td>
+                                    <td>{{ obj.address }}</td>
+                                    <td>{{ obj.status }}</td>
+                                    <td>{{ obj.patientpassword }}</td>
+                                    <td>
+                                        <button class="edit" onclick="editRow(this)"><i class='bx bx-edit' style="font-size: 20px;"></i></button>
+                                        <button class="delete" onclick="deleteRow('{{obj.patient_id}}')"><i class='bx bx-comment-x' style="font-size: 20px;"></i></button>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="8">No patient Items found.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+        
+                        <div class="pagination">
+                            <span>Showing 1 to {{ userdata|length }} of {{ userdata|length }} entries</span>
+                            <div class="pagination-controls">
+                                <button class="previous">Previous</button>
+                                <button class="next">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Edit Popup -->
+            <div class="edit-popup" id="editPopup">
+                <div class="popup-content">
+                    <h2>Edit Patient</h2>
+                    <label for="editName">Patient ID</label>
+                    <input type="text" id="editID">
+                    <label for="editName">Name:</label>
+                    <input type="text" id="editName">
+                    <label for="editPhoneNumber">Phone Number:</label>
+                    <input type="text" id="editPhoneNumber">
+                    <label for="editGender">Gender:</label>
+                    <input type="text" id="editGender">
+                    <label for="editdob">Date of Birth:</label>
+                    <input type="date" id="editdob">
+                    <label for="editMedicalHistory">Medical History:</label>
+                    <input type="text" id="editMedicalHistory">
+                    <label for="editAddress">Address:</label>
+                    <input type="text" id="editAddress">
+                    <label for="editStatus">Status:</label>
+                    <select id="editStatus">
+                        <option>In Treatment</option>
+                        <option>Recovered</option>
+                        <option>New Patient</option>
+                    </select>
+        
+                    <button class="btn green" onclick="saveEdit()">Save</button>
+                    <button class="btn red" onclick="closeEditPopup()">Cancel</button>
+                </div>
+            </div>
+
+                    
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="{% static '/js/main.js' %}"></script>
+    <script src="{% static '/js/addpatientdashboard.js' %}"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+

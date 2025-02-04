@@ -1,0 +1,522 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Add Appointment - SG Hospital</title>
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" href="{% static '/css/invoice.css' %}">
+</head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <span class="icon">
+                            <img src="{% static '/images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                        </span>
+                        <span class="title">SG Hospital</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <span class="icon">
+                            <i class='bx bx-grid-alt' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/doctors.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Doctor</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#">Add New Doctor</a>
+                        <a href="#">View Doctors</a>
+                        <a href="#">Edit Doctor</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/medical.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Patient</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    <div class="dropdown-menu">
+                        <a href="#">Add New Patient</a>
+                        <a href="#">View Patients</a>
+                        <a href="#">edit Patient</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/teamwork.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Staff</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    <div class="dropdown-menu">
+                        <a href="#">Add New Staff</a>
+                        <a href="#">View Staff</a>
+                        <a href="#">Edit Staff</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/calendar.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Appointment</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'addappodash' %}">Add New Appointment</a>
+                        <a href="{% url 'appodash' %}">View Appointment</a>
+                        <a href="#">Doctor Schedule</a>
+                    </div>
+                </li>
+                
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/ct-scan.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Laboratory</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#">Add New Test</a>
+                        <a href="#">View Tests</a>
+                        <a href="#">View Staff</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <i class='bx bx-plus-medical' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Pharmacy</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    <div class="dropdown-menu">
+                        <a href="#">Add New Medicine</a>
+                        <a href="#">View Medicines</a>
+                        <a href="{% url 'addinventdash' %}">Add New Inventory</a>
+                        <a href="{% url 'inventdash' %}">View Inventory</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <i class='bx bx-bed' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Ward</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#"> Add Wards</a>
+                        <a href="#">View Ward</a>
+                        <a href="#">Add Bed</a>
+                        <a href="#">View Bed</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/bill.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Payment</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#">payment</a>
+                        <a href="#">view payment</a>
+                        <a href="#">print payment</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"style="color: black;"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+                <i class='bx bx-message-detail' style="color: black; font-size: 25px; position: relative;"></i>
+                <i class='bx bxs-bell' style="color: black; font-size: 25px;"></i>
+                <span style="right: 20%;">Hello, Roberto</span>
+                <div class="user">
+                    <img src="{% static 'images/doctors/doctor 1.jpg' %}" alt="">
+                </div>
+            </div>
+
+            <!-- Add Appointment Form -->
+            <div class="page-title">
+
+                <div class="pull-left">
+                    <!-- PAGE HEADING TAG - START -->
+                    <h1 class="title">Add Appointment</h1>
+                    <!-- PAGE HEADING TAG - END -->
+                </div>
+
+                <div class="pull-right hidden-xs">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="{% url 'index' %}"><i class="fa fa-home"></i> Home </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'appodash' %}"> Appointment </a>
+                        </li>
+                        <li class="active">
+                            <strong>Add Appointment</strong>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+            <div class="col-xs-12 mb-30">
+            <div class="add-header-wrapper gradient-blue curved-section text-center">
+                <h2 class="uppercase bold w-text">Add new Payment</h2>
+                <div class="before-text">add patient</div>
+                <p class="g-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto magni consequatur excepturi ab veritatis id facere facilis tempora sit amet, consectetur adipisicing elit. Iusto magni.</p>
+            </div>
+
+            <div class=" bg-w">
+                <div class="col-xs-12">
+                    <section class="box ">
+                            <header class="panel_header">
+                                <h2 class="title pull-left">Payment Info</h2>
+                                <div class="actions panel_actions pull-right">
+                                    <a class="box_toggle fa fa-chevron-down"></a>
+                                    <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
+                                    <a class="box_close fa fa-times"></a>
+                                </div>
+                            </header>
+                            <div class="content-body">
+                    <div class="row">
+                    <form action="#" method="post">
+                        
+                        <div class="col-lg-6 col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <label class="form-label" for="field-1">Bill Number</label>
+                                <span class="desc"></span>
+                                <div class="controls">
+                                    <input type="text" class="form-control" id="field-1" fdprocessedid="9f6mj4">
+                                </div>
+                            </div>                    
+                            <div class="form-group">
+                                <label class="form-label" for="field-1">Bill Date</label>
+                                <span class="desc"></span>
+                                <div class="controls">
+                                    <input type="text" class="form-control" id="field-1" fdprocessedid="8visuf">
+                                </div>
+                            </div>                    
+                        </div>
+                        <div class="col-lg-6 col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <label class="form-label" for="field-1">Patient Name</label>
+                                <span class="desc"></span>
+                                <div class="controls">
+                                    <input type="text" class="form-control" id="field-1" fdprocessedid="o0cp1m">
+                                </div>
+                            </div>                    
+                            <div class="form-group">
+                                <label class="form-label" for="field-1">Doctor Name</label>
+                                <span class="desc"></span>
+                                <div class="controls">
+                                    <input type="text" class="form-control" id="field-1" fdprocessedid="vcxube">
+                                </div>
+                            </div>                    
+                        </div>
+                        <div class="clearfix"></div>
+                        <br>
+                        <div class="col-xs-12 table-responsive padding-top-45 padding-bottom-45">
+                            <table class="table table-bordered table-hover bg-white-only">
+                            <thead>
+                        <tr style="font-weight: bold">
+                            <td style="width:35%">Particulars of Charges</td>
+                            <td style="width:20%">Details</td>
+                            <td style="width:10%">Rate</td>
+                            <td style="width:10%">Quantity</td>
+                            <td style="width:10%">Amount</td>
+                            <td style="width:15%">Edit</td>
+                        </tr>
+                    </thead>
+                    
+                <tbody>
+
+
+                <tr>
+                    <td class="v-middle">
+                        <span>
+                        Special Room
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        empty
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        123
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        1
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        123
+                        </span>
+                    </td>
+                    <td style="white-space: nowrap">
+                        <!-- form -->
+                        
+                        <div class="buttons" ng-show="!rowform.$visible" style="">
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="rowform.$show()" fdprocessedid="lvft1v">edit</button>
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="removeUser($index)" fdprocessedid="f8cjy">del</button>
+                        </div>
+                    </td>
+                </tr><!-- end ngRepeat: charge in charges --><tr>
+                    <td class="v-middle">
+                        <span>
+                        Operation Charge
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        empty
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        617
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        1
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        617
+                        </span>
+                    </td>
+                    <td style="white-space: nowrap">
+                        
+                        <div class="buttons" ng-show="!rowform.$visible">
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="rowform.$show()" fdprocessedid="1csy8k">edit</button>
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="removeUser($index)" fdprocessedid="0i1f7g">del</button>
+                        </div>
+                    </td>
+                </tr><!-- end ngRepeat: charge in charges --><tr>
+                    <td class="v-middle">
+                        <span>
+                        Theatre Charge
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        empty
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        2424
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        1
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        2424
+                        </span>
+                    </td>
+                    <td style="white-space: nowrap">
+                        
+                        <div class="buttons" ng-show="!rowform.$visible">
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="rowform.$show()" fdprocessedid="cj2h3j">edit</button>
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="removeUser($index)" fdprocessedid="hqps7">del</button>
+                        </div>
+                    </td>
+                </tr><!-- end ngRepeat: charge in charges --><tr>
+                    <td class="v-middle">
+                        <span>
+                        Assistant Charge
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        empty
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        623
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        2
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        1246
+                        </span>
+                    </td>
+                    <td style="white-space: nowrap">
+                    
+                        <div class="buttons" ng-show="!rowform.$visible">
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="rowform.$show()" fdprocessedid="kcdqm9">edit</button>
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="removeUser($index)" fdprocessedid="8qc9ze">del</button>
+                        </div>
+                    </td>
+                </tr><!-- end ngRepeat: charge in charges --><tr>
+                    <td class="v-middle">
+                        <span>
+                        Implant Charge
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        empty
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        428
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        1
+                        </span>
+                    </td>
+                    <td class="v-middle">
+                        <span>
+                        428
+                        </span>
+                    </td>
+                    <td style="white-space: nowrap">
+                    
+                        <div class="buttons" ng-show="!rowform.$visible">
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="rowform.$show()" fdprocessedid="yyfrc">edit</button>
+                            <button type="button" class="btn btn-xs btn-secondary" ng-click="removeUser($index)" fdprocessedid="qbdqir">del</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+            <button type="button" class="btn btn-primary gradient-blue btn-sm" fdprocessedid="oz054b">Add row</button><br>
+            <div class="clearfix"></div><br>
+        </div>
+
+
+        <div class="col-lg-6 col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label class="form-label" for="field-1">Payment Method</label>
+                <span class="desc"></span>
+                
+                    <select class="form-control " fdprocessedid="o9fv1q">
+                        <option></option>
+                        <option>Cash</option>
+                        <option>Cheque</option>
+                    </select>
+                
+            </div>                    
+            <div class="form-group">
+                <label class="form-label" for="field-1">Payment Status</label>
+                <span class="desc"></span>
+                
+                    <select class="form-control " fdprocessedid="i1jg7j">
+                        <option></option>
+                        <option>Pending</option>
+                        <option>Partial</option>
+                        <option>Complete</option>
+                    </select>
+                
+            </div>                    
+        </div>
+        <div class="col-lg-6 col-xs-12 col-sm-6 text-right">
+        
+            <div class="form-group has-static">
+                <label class="form-label">Gross Total</label>
+                <div class="controls">
+                    <p class="form-control-static"><strong>$2500.00</strong></p>
+                </div>
+            </div>                  
+            <div class="form-group has-static">
+                <label class="form-label">Tax (%)</label>
+                <div class="controls">
+                    <p class="form-control-static"><strong>$200.00 (14%)</strong></p>
+                </div>
+            </div> 
+            <div class="form-group has-static">
+                <label class="form-label">Discount (%)</label>
+                <div class="controls">
+                    <p class="form-control-static"><strong>$100.00 (10%)</strong></p>
+                </div>
+            </div> 
+            <div class="form-group has-static">
+                <label class="form-label">Total</label>
+                <div class="controls">
+                    <p class="form-control-static"><strong>$2200.00</strong></p>
+                </div>
+            </div>                  
+        </div>
+
+
+            <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                <div class="text-left">
+                    <button type="button" class="btn btn-primary gradient-blue" fdprocessedid="f2rusu">Save</button>
+                    <button type="button" class="btn" fdprocessedid="zn90l">Cancel</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script src="{% static '/js/add_appointment.js' %}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
+</body>
+</html>

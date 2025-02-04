@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudeeksha Groups Hospital</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    
+
+</head>
+<body>
+    <header class="top-header">
+        <div class="social-media">
+            <a href="#" class="social-icon"><img src="{% static 'images/socialmedia/instagram.png' %}" alt="Instagram"></a>
+            <a href="https://www.facebook.com/SudeekshaGroupofCompanies/" class="social-icon"><img src="{% static 'images/socialmedia/facebook.png' %}" alt="Facebook"></a>
+            <a href="https://in.linkedin.com/company/sudeeksha-healthcare-private-limited" class="social-icon"><img src="{% static 'images/socialmedia/linkedin.png' %}" alt="LinkedIn"></a>
+            <a href="#" class="social-icon"><img src="{% static 'images/socialmedia/twitter.png' %}" alt="Twitter"></a>
+            <a href="https://www.youtube.com/channel/UCLpyEmSfrcGy1phZFN1ezSA" class="social-icon"><img src="{% static 'images/socialmedia/youtube.png' %}" alt="YouTube"></a>
+        </div>
+        <a href="{% url 'appointment' %}"class="appointment-button">Book Appointment</a>
+    </header>
+
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                    <span>SG Hospital</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="{% url 'login' %}" class="nav-signup">Login</a>
+                <a href="{% url 'signup' %}" class="nav-signup">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="carousel">
+            <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-images">
+                <img src="{% static 'images/health.png' %}" alt="Image 1" class="carousel-image">
+                <img src="{% static 'images/sg .png' %}" alt="Image 2" class="carousel-image">
+                <img src="{% static 'images/health.png' %}" alt="Image 3" class="carousel-image">
+                <img src="{% static 'images/sg .png' %}" alt="Image 4" class="carousel-image">
+            </div>
+            <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="message-chairman" class="message-chairman">
+        <h1>Our Hospital</h1>
+        <div class="message-container">
+            <div class="message-image">
+                <img src="{% static 'images/hospital.jpg' %}" alt="Chairman">
+            </div>
+            <div class="message-text">
+                <p>Welcome to Sudeeksha Groups Hospital. As Chairman, I am proud to lead an organization dedicated to providing the highest quality healthcare services. Our commitment to excellence, patient care, and innovation drives us to continuously improve and serve our community with compassion and integrity. Thank you for placing your trust in us.</p>
+                <ul>
+                    <li>Alumnus of Harvard University.</li>
+                    <li> Over 28 yrs. of experience in Sales, Marketing including Finance, Media & Entertainment, Aviation, Solar Energy, Healthcare, Retail & legal.</li>
+                </ul>
+                <h4 style="font-family:Arial, Helvetica, sans-serif;">DR.SUBRAMANYAM SHARAMA G</h4>
+                <span class="chairman" style="font-style: italic;"> Chairman and Managing Director</span>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="services-section">
+        <div class="services-container">
+            <div class="services-left">
+                <div class="service-box" data-aos="fade-up">
+                    <img src="{% static 'images/doctors/doctor.png' %}" alt="General Medicine">
+                    <p>General Medicine</p>
+                </div>
+                <div class="service-box" data-aos="fade-up">
+                    <img src="{% static 'images/doctors/pediatrics_16536206.png' %}" alt="Pediatrician">
+                    <p>Pediatrician</p>
+                </div>
+                <div class="service-box" data-aos="fade-up">
+                    <img src="{% static 'images/doctors/surgery.png' %}" alt="General Surgeon">
+                    <p>General Surgeon</p>
+                </div>
+                <div class="service-box" data-aos="fade-up">
+                    <img src="{% static 'images/doctors/neurologist.png' %}" alt="Neuro Specialist">
+                    <p>Neuro Specialist</p>
+                </div>
+                <div class="service-box" data-aos="fade-up">
+                    <img src="{% static 'images/doctors/maternity.png' %}" alt="Gynecology">
+                    <p>Gynecology</p>
+                </div>
+                <div class="service-box" data-aos="fade-up">
+                    <img src="{% static 'images/doctors/24-7.png' %}" alt="Emergency">
+                    <p>Emergency</p>
+                </div>
+            </div>
+            <div class="services-right">
+                <img src="{% static 'images/about.png' %}" alt="Services Image">
+            </div>
+        </div>
+    </section>
+
+    <section id="doctors" class="doctors-section">
+        <div class="doctors-carousel">
+            <button class="carousel-button prev" onclick="moveDoctorsSlide(-1)">&#10094;</button>
+            <div class="doctors-container">
+                <div class="doctors-images">
+                    <div class="doctors-slide">
+                        <!-- Slide 1 -->
+                        <div class="doctor-box">
+                            <img src="{% static 'images/doctors/doctor 1.jpg' %}" alt="Doctor 1">
+                            <p class="doctor-name">Dr. John Doe</p>
+                            <p class="doctor-info">PHD in Surgery</p>
+                        </div>
+                        <div class="doctor-box">
+                            <img src="{% static 'images/doctors/doctor 2.jpg' %}" alt="Doctor 2">
+                            <p class="doctor-name">Dr. Jane Smith</p>
+                            <p class="doctor-info">PHD in Surgery</p>
+                        </div>
+                        <div class="doctor-box">
+                            <img src="{% static 'images/doctors/doctor 3.jpg' %}" alt="Doctor 3">
+                            <p class="doctor-name">Dr. Robert Brown</p>
+                            <p class="doctor-info">PHD in Surgery</p>
+                        </div>
+                        <div class="doctor-box">
+                            <img src="{% static 'images/doctors/doctor 4.jpg' %}" alt="Doctor 4">
+                            <p class="doctor-name">Dr. Emily Davis</p>
+                            <p class="doctor-info">PHD in Surgery</p>
+                        </div>
+                    </div>
+                    <div class="doctors-slide">
+                        <!-- Slide 2 -->
+                        <div class="doctor-box">
+                            <img src="{% static 'images/doctors/doctor 1.jpg' %}" alt="Doctor 5">
+                            <p class="doctor-name">Dr. Michael Wilson</p>
+                            <p class="doctor-info">PHD in Surgery</p>
+                        </div>
+                        <div  class="doctor-box">
+                            <img src="{% static 'images/doctors/doctor 2.jpg' %}" alt="Doctor 6">
+                            <p class="doctor-name">Dr. Sarah Johnson</p>
+                            <p class="doctor-info">PHD in Surgery</p>
+                        </div>
+                        <div class="doctor-box">
+                            <img src="{% static 'images/doctors/doctor 3.jpg' %}" alt="Doctor 7">
+                            <p class="doctor-name">Dr. William Martinez</p>
+                            <p class="doctor-info">PHD in Surgery</p>
+                        </div>
+                        <div class="doctor-box">
+                            <img src="{% static 'images/doctors/doctor 4.jpg' %}" alt="Doctor 8">
+                            <p class="doctor-name">Dr. Olivia Lee</p>
+                            <p class="doctor-info">PHD in Surgery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-button next" onclick="moveDoctorsSlide(1)">&#10095;</button>
+        </div>
+    </section>
+    
+        
+
+    <section id="about" class="info-section">
+        <div class="info-container">
+            <div class="info-text">
+                <h2>About Us</h2>
+                <p>Sudeeksha HealthCare Private Limited is a unit promoted by Sudeeksha Group of Companies, which was formed in 2009 and is now venturing into one of the India’s fastest growing business namely Retail. Currently Sri. G. Seshasayi Sharma, Sri G. Subramanyam Sharma and the legal advisor Smt. Aparna Kanampalle are the promoters of this venture. The group is highly motivated qualified professionals, well experienced in their respective fields. The promoters are hard core professionals with innovation, Entrepreneurship, Transparency, Integrity, passion for superior performance anticipation, speed and flexibility to achieve excellence in all spheres of business</p>
+                <a href="about.html" class="info-aboutus">About Us</a>
+            </div>
+            <div class="info-image">
+                <img src="{% static 'images/contact.png' %}" alt="About Us Image">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="info-section">
+        <div class="info-container">
+            <div class="info-image">
+                <img src="{% static 'images/contact.png' %}" alt="Contact Us Image">
+            </div>
+            <div class="info-text">
+                <h2>Contact Us</h2>
+                <p>Reach out to us via phone, email, or visit our facility. We are here to help.</p>
+                <a href="images/about.html" class="info-contact">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <div class="footer-column">
+            <h3>Company</h3>
+            <a href="indexmain.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="movies.html">Movies</a>
+        </div>
+        <div class="footer-column">
+            <h3>Top Categories</h3>
+            <a href="#">Action</a>
+            <a href="#">Romantic</a>
+            <a href="#">Drama</a>
+            <a href="#">Historical</a>
+        </div>
+        <div class="footer-column">
+            <h3>My Account</h3>
+            <a href="#">Dashboard</a>
+            <a href="#">My Favorites</a>
+            <a href="#">Profile</a>
+            <a href="#">Change Password</a>
+        </div>
+        <div class="footer-contact">
+            <h3>SG hospital</h3>
+            <p>Lorem 196 Andrew Road, Suite 200,</p>
+            <p>New York, NY 10007</p>
+            <p>Tell: +255 754 661 423</p>
+            <p>Email: info@zpunet.com</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceBoxes = document.querySelectorAll('.service-box');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+        
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        target.style.opacity = '1';
+                        target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+        
+            serviceBoxes.forEach(box => observer.observe(box));
+        });
+
+        let currentDoctorsSlide = 0;
+        const doctorsSlides = document.querySelectorAll('.doctors-slide');
+        const totalDoctorsSlides = doctorsSlides.length;
+
+        function moveDoctorsSlide(step) {
+            // Calculate the new slide index
+            currentDoctorsSlide = (currentDoctorsSlide + step + totalDoctorsSlides) % totalDoctorsSlides;
+
+            // Move the carousel
+            const newTransform = -currentDoctorsSlide * 100;
+            document.querySelector('.doctors-images').style.transform = `translateX(${newTransform}%)`;
+        }
+
+    </script>
+    
+        
+            
+        
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudeeksha Groups Hospital</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                    <span>SG Hospital</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="{% url 'login' %}" class="nav-signup">Login</a>
+                <a href="{% url 'signup' %}" class="nav-signup">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="glassmorphism-container">
+            <div class="container-inner">
+                <div class="form-container">
+                    <h1 style="font-weight: bold; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 35px; margin-bottom: 60px;">Set Password</h1>
+                    <form id="addUserForm" class="form" >
+                            <label for="UserName">UserName:</label>
+                            <input type="text" id="UserName" required>
+
+                            <label for="password">password:</label>
+                            <input type="text" id="password" required>
+
+                            <label for="role">Role:</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select Gender</option>
+                                <option value="Patient">Patient</option>
+                            </select>
+
+                            <button type="submit" class="btn green">Sign Up</button>
+                        
+                    </form>
+                    <div class="signup-link">
+                        Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="{% static 'images/signin.png' %}" alt="Appointment Image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-column">
+            <h3>Company</h3>
+            <a href="indexmain.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="movies.html">Movies</a>
+        </div>
+        <div class="footer-column">
+            <h3>Top Categories</h3>
+            <a href="#">Action</a>
+            <a href="#">Romantic</a>
+            <a href="#">Drama</a>
+            <a href="#">Historical</a>
+        </div>
+        <div class="footer-column">
+            <h3>My Account</h3>
+            <a href="#">Dashboard</a>
+            <a href="#">My Favorites</a>
+            <a href="#">Profile</a>
+            <a href="#">Change Password</a>
+        </div>
+        <div class="footer-contact">
+            <h3>SG hospital</h3>
+            <p>Lorem 196 Andrew Road, Suite 200,</p>
+            <p>New York, NY 10007</p>
+            <p>Tell: +255 754 661 423</p>
+            <p>Email: info@zpunet.com</p>
+        </div>
+    </div>
+    <script src="{% static '/js/add_user.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- jQuery script for form submission -->
+    <script>
+        $(document).ready(function() {
+            $('#addUserForm').on('submit', function(event) {
+                event.preventDefault();
+        
+                var UserName = $('#UserName').val();
+                var password = $('#password').val();
+                var role = $('#role').val();
+        
+                // Basic validation (optional, you can customize this)
+                if (!UserName || !password || !role) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+        
+                // Example AJAX request (change URL to your server endpoint)
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'add_user' %}", // Endpoint in updated URLs
+                    data: {
+                        UserName: UserName,
+                        password: password,
+                        role: role,
+                        csrfmiddlewaretoken: '{{ csrf_token }}' // Add CSRF token for Django
+                    },
+                    success: function(response) {
+                        alert('User added successfully!');
+                        window.location.href = '{% url "afterhome" %}'; // Redirect to view appointments
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('An error occurred while adding the appointment.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

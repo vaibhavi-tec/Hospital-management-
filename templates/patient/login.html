@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudeeksha Groups Hospital</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                    <span>SG Hospital</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="{% url 'login' %}" class="nav-signup">Login</a>
+                <a href="{% url 'signup' %}" class="nav-signup">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="glassmorphism-container">
+            <div class="container-inner">
+                
+                <div class="form-container">
+                    <h1 style="font-weight: bold; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 35px; margin-bottom: 60px;">Login</h1>
+                    <!-- <form id="addsignupForm" > -->
+                        <div id="addsignupForm" class="form">
+                        <label for="patient-name">Patient Name:</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="patient-password">Password:</label>
+                        <input style="margin-bottom: 40px;"type="password" id="password" name="password" required>
+
+                        <input style="background-color: rgb(101, 151, 224); height: 35px; border-radius: 15px;"type="submit" onclick="check();" value="Register">
+                        </div>
+                    <!-- </form> -->
+                    <div class="signup-link">
+                        Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="{% static 'images/signin.png' %}" alt="Appointment Image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-column">
+            <h3>Company</h3>
+            <a href="indexmain.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="movies.html">Movies</a>
+        </div>
+        <div class="footer-column">
+            <h3>Top Categories</h3>
+            <a href="#">Action</a>
+            <a href="#">Romantic</a>
+            <a href="#">Drama</a>
+            <a href="#">Historical</a>
+        </div>
+        <div class="footer-column">
+            <h3>My Account</h3>
+            <a href="#">Dashboard</a>
+            <a href="#">My Favorites</a>
+            <a href="#">Profile</a>
+            <a href="#">Change Password</a>
+        </div>
+        <div class="footer-contact">
+            <h3>SG hospital</h3>
+            <p>Lorem 196 Andrew Road, Suite 200,</p>
+            <p>New York, NY 10007</p>
+            <p>Tell: +255 754 661 423</p>
+            <p>Email: info@zpunet.com</p>
+        </div>
+    </div>
+    <script>
+        function check()
+        {
+            var username = $("#username").val();
+            var pass = $("#password").val();
+            //console.log("username: ", username);
+            //console.log("password: ", pass);
+            $.ajax({
+                type: "POST",
+                url: "{% url 'login_check' %}",
+                data:{"patientname": username, "pateintpass": pass},
+                success: function(data)
+                {
+                    console.log(data);
+                     if(data["status"] == "pass")
+                    {
+                        console.log("user: ", data["user"]);
+                        console.log("role: ", data["role"]);
+                        if(data["role"] == 'Admin')
+                        {
+                            alert("loged into admindash");
+                            window.location.replace("/Patient/UserProfileView")
+                        }
+                        else if(data["role"] == 'Staff')
+                        {
+                            alert("loged into staffdash");
+                            window.location.replace("/Patient/UserDoctorView")
+                        }
+                        else if(data["role"] == 'Doctor')
+                        {
+                            alert("loged into doctordash");
+                            window.location.replace("/Doctor/")
+                        }
+                        
+                        else if(data["role"] == 'Patient')
+                        {
+                            alert("loged into Patient");
+                            window.location.replace("/Patient/home")
+                        }
+                        else
+                        {
+                            alert("login failed");
+                        }
+                        
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

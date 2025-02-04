@@ -1,0 +1,333 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>SG hospital Dashboard</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/Doctor/doctor">
+                        <span class="icon">
+                            <img src="{% static '/images/logo.png' %}" alt="Sudeeksha Groups Hospital Logo">
+                        </span>
+                        <span class="title">SG Hospital</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Doctor/doctor">
+                        <span class="icon">
+                            <i class='bx bx-grid-alt' style="color: black; font-size: 25px;"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>              
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/medical.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Patient</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    <div class="dropdown-menu">
+                        <a href="/Doctor/doctor/addpat">Add New Patient</a>
+                        <a href="/Doctor/doctor/patientdash">View Patients</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/calendar.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Appointment</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/Doctor/doctor/addappo">Add New Appointment</a>
+                        <a href="/Doctor/doctor/appostaff">View Appointment</a>
+                        <a href="#">Doctor Schedule</a>
+                    </div>
+                </li>
+                
+
+                <li class="dropdown">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="{% static 'images/icon/ct-scan.png' %}" alt="" style="height: 30px; width: 30px;">
+                        </span>
+                        <span class="title">Laboratory</span>
+                        <i style="position: relative;top: 20px; display: flex; justify-content: space-between;font-size: 20px;" class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/Doctor/doctor/Equipdash">Lab Equipment</a>
+                        <a href="/Doctor/doctor/Labdash">Lab Service</a>
+                        <a href="/Doctor/doctor/Meddash">medical record</a>
+                        <a href="/Doctor/doctor/report">Report</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"style="color: black;"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <i class='bx bx-message-detail' ></i>
+                <i class='bx bxs-bell'></i>
+
+                <span>Hello,{{ currentuser}}</span>
+                <div class="user">
+                    <img src="{% static 'images/facebook.png' %}" alt="">
+                </div>
+            </div>
+
+            <!-- ======================= Cards ================== -->
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Patient</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class='bx bx-user' ></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">18</div>
+                        <div class="cardName">Appointment</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class='bx bxs-calendar' ></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">200</div>
+                        <div class="cardName">beds</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class='bx bxs-bed' ></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">800</div>
+                        <div class="cardName">Pharmacy Stock</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class='bx bx-plus-medical' ></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================ Order Details List ================= -->
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Recent Patients</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Patient Name</td>
+                                <td>Gender</td>
+                                <td>Disease</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>lakshmi</td>
+                                <td>female</td>
+                                <td>Fever</td>
+                                <td><span class="new patient">Discharged</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Ajay</td>
+                                <td>male</td>
+                                <td>fever</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>raksha</td>
+                                <td>female</td>
+                                <td>fever</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Anu</td>
+                                <td>female</td>
+                                <td>fever</td>
+                                <td><span class="status inProgress">In Progress</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>vaibhavi </td>
+                                <td>female</td>
+                                <td>fever</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>rangaswamy </td>
+                                <td>male</td>
+                                <td>fever</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>soumya</td>
+                                <td>female</td>
+                                <td>fever</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>raghu</td>
+                                <td>male</td>
+                                <td>fever</td>
+                                <td><span class="status inProgress">In Progress</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ================= New Customers ================ -->
+                <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2>Recent Appointment</h2>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="{% static 'images/facebook.png' %}" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>David <br> <span>10:30am|10:45am</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="{% static 'images/facebook.png' %}" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Amit <br> <span>10:30am|10:45am</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="{% static 'images/facebook.png' %}" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>raksha <br> <span>10:30am|10:45am</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="{% static 'images/facebook.png' %}" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>lakshmi <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="{% static 'images/facebook.png' %}" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>vaibhavi <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="{% static 'assets/imgs/customer01.jpg' %}" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Ajay <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="{% static 'assets/imgs/customer01.jpg' %}" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>raghu <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="{% static 'assets/imgs/customer02.jpg' %}" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>soumya<br> <span>India</span></h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- ====== ionicons ======= -->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
